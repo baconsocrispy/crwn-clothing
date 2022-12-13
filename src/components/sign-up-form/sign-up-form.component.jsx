@@ -84,6 +84,7 @@ const SignUpForm = () => {
           type='password' 
           required 
           onChange={ handleChange } 
+          autocomplete='off'
           name='password' 
           value={ password }
         />
@@ -94,6 +95,7 @@ const SignUpForm = () => {
           required 
           onChange={ handleChange } 
           name='confirmPassword' 
+          autocomplete='off'
           value={ confirmPassword }
         />
 

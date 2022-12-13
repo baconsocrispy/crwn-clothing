@@ -5,7 +5,6 @@ import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import { 
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword
 } from '../../utils/firebase/firebase.utils';
 
@@ -72,6 +71,7 @@ const SignInForm = () => {
           onChange={ changeHandler }
           type='password'
           name='password'
+          autocomplete='on'
           value={ password }
         />
 
