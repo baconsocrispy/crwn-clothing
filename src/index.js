@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter } from 'react-router-dom'; // adds routing functionality to child components
+import { Provider } from 'react-redux'; // single source for state management, provides store of state for all child components
+import { PersistGate } from 'redux-persist/integration/react'; // adds memoization/state persistence to all child components
+import { Elements } from '@stripe/react-stripe-js'; // provides access to Stripe functionality to all child components
 
 import App from './App';
 
 import { store, persistor } from './store/store';
+import { stripePromise } from './utils/stripe/stripe.utils';
 
 import './index.scss';
 
@@ -17,7 +19,9 @@ root.render(
     <Provider loading={null} store={ store }>
       <PersistGate persistor={ persistor }>
         <BrowserRouter>
-          <App />
+          <Elements stripe={ stripePromise }>
+            <App />
+          </Elements>
         </BrowserRouter>
       </PersistGate>
     </Provider>

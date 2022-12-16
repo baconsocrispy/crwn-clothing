@@ -1,5 +1,5 @@
 // Fragment element wraps content in a div that doesn't show up in the DOM
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
 
 // Outlet component indicates where child route content will display
 // Link component turns content into a link to the specified 'to' route
