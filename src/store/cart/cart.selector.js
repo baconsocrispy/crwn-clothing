@@ -1,3 +1,5 @@
+// reselect library helps to prevent code from rerunning if
+// no changes have been made to the state. 
 import { createSelector } from "reselect";
 
 const selectCartReducer = state => state.cart;

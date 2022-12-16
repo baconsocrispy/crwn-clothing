@@ -1,3 +1,5 @@
+// reselect library helps to prevent code from rerunning if
+// no changes have been made to the state. 
 import { createSelector } from "reselect";
 
 const selectCategoryReducer = (state) => state.categories;
@@ -14,4 +16,9 @@ export const selectCategoriesMap = createSelector(
     acc[title.toLowerCase()] = items;
     return acc;
   }, {})
+);
+
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
 );
