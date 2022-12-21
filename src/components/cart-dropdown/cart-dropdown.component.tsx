@@ -1,3 +1,5 @@
+import { useCallback, useMemo } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Button from '../button/button.component';
@@ -10,9 +12,12 @@ const CartDropDown = () => {
   const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
-  const goToCheckoutHandler = () => {
+  // use callback is a potentially unnecessary optimization
+  // it takes 2 parameters, a callback to memoize, and an array of
+  // dependencies that tell it when to re-memoize the callback
+  const goToCheckoutHandler = useCallback(() => {
     navigate('/checkout');
-  };
+  }, []);
 
   return (
     <CartDropdownContainer>
